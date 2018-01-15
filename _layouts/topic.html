@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% include meta.html %}
+  <style>
+    main > header { background-image: url('{{ page.banner-full }}'); }
+
+    @media screen and (max-device-width: 992px) {
+      main > header { background-image: url('{{ page.banner-large }}'); }
+    }
+
+    @media screen and (max-device-width: 768px) {
+      main > header { background-image: url('{{ page.banner-medium }}'); }
+    }
+
+    @media screen and (max-device-width: 576px) {
+      main > header { background-image: url('{{ page.banner-small }}'); }
+    }
+  </style>
+</head>
+<body class="entity composite component topic">
+{% include header.html %}
+<main class="main">
+  <header><h1>{{ page.title }}</h1></header>
+  {{ content }}
+  {% if page.footer %}
+  <hr>
+  <footer>{{ page.footer }}</footer>
+  {% endif %}
+</main>
+{% include footer.html %}
+</body>
+</html>

@@ -1,0 +1,42 @@
+
+$foot-border: 1px solid #616161;
+
+body > footer {
+  align-items: center;
+  background: linear-gradient(#343940, #2e3238);
+  border: $foot-border;
+  display: flex;
+  flex-direction: column;
+  padding: .5em;
+
+  address {
+    align-items: center;
+    display: flex;
+
+    a {
+      display: block;
+      margin: 0 .5em;
+      text-decoration: none;
+    }
+
+  }
+
+  small {
+    margin: 0;
+    padding-top: .5em;
+    text-align: center;
+  }
+
+}
+
+@media (min-width: 577px) {
+
+  body > footer {
+
+    address {
+      font-size: 1.45em;
+    }
+
+  }
+
+}

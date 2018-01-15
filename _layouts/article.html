@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% include meta.html %}
+  <style>
+    main > article > header { background-image: url('{{ page.banner-full }}'); }
+
+    @media screen and (max-device-width: 992px) {
+      main > article > header { background-image: url('{{ page.banner-large }}'); }
+    }
+
+    @media screen and (max-device-width: 768px) {
+      main > article > header { background-image: url('{{ page.banner-medium }}'); }
+    }
+
+    @media screen and (max-device-width: 576px) {
+      main > article > header { background-image: url('{{ page.banner-small }}'); }
+    }
+
+  </style>
+</head>
+<body class="entity component article{% if page.style %} {{ page.style }}{% endif %}">
+{% include header.html %}
+<main>
+  <article class="main">
+    <header>
+      <h1>{{ page.title }}</h1>
+      {% if page.twitter %}
+      <p>{% if page.headline %}{{ page.headline }} by
+        {% endif %}<a href="https://twitter.com/{{ page.twitter }}">@{{ page.twitter }}</a></p>
+      {% else %}
+      {% if page.headline %}<p>{{ page.headline }}</p>{% endif %}
+      {% endif %}
+    </header>
+    {{ content }}
+    {% if page.footer %}
+    <footer>
+      Further reading: {{ page.footer }}
+    </footer>
+    {% endif %}
+  </article>
+</main>
+{% include footer.html %}
+</body>
+</html>
